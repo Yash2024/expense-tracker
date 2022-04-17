@@ -7,12 +7,13 @@ import { expense } from 'src/expense.model';
 })
 export class JanComponent implements OnInit {
 
-  exp: expense={expid:0,date:"",name:"",desc:"",amount:0,btn:1};
-  total: number=0;
+  dsp:number=1;
+  exp: expense={expid:0,date:"",name:"",desc:"",amount:null,btn:true};
+  total!: number;
   explist : expense[]=[];
   localitem!: string|null;
   constructor() { 
-    this.localitem=localStorage.getItem("explist");
+    this.localitem=localStorage.getItem("janexplist");
     if(this.localitem==null)
     {
       this.explist=[];
@@ -28,14 +29,15 @@ export class JanComponent implements OnInit {
   //update
   setsave(i:number)
   {
-      this.explist[i].btn=0;
+      this.explist[i].btn=false;
+      // document.getElementById("text")?.disabled=false;
   }
 
   saveexp(exp:expense,i:number)
   {
     this.explist[i]=exp;
-    this.explist[i].btn=1;
-    localStorage.setItem("explist",JSON.stringify(this.explist));
+    this.explist[i].btn=true;
+    localStorage.setItem("janexplist",JSON.stringify(this.explist));
   }
 
 
@@ -52,10 +54,10 @@ export class JanComponent implements OnInit {
     
     var expd= Object.assign({},this.exp);
     expd.expid=1000+this.explist.length;
-    expd.btn=1;
+    expd.btn=true;
     this.explist.push(expd);
-    this.exp={ expid: 0,date:"",name: "",desc:"", amount: 0,btn:1};
-    localStorage.setItem("explist",JSON.stringify(this.explist));
+    this.exp={ expid: 0,date:"",name: "",desc:"", amount: null,btn:true};
+    localStorage.setItem("janexplist",JSON.stringify(this.explist));
     this.newslot=false;
   }
 
@@ -64,6 +66,17 @@ export class JanComponent implements OnInit {
   deleteexpense(id:number)
   {
     this.explist=this.explist.filter(x =>x.expid !=id);
-    localStorage.setItem("explist",JSON.stringify(this.explist));
+    localStorage.setItem("janexplist",JSON.stringify(this.explist));
+  }
+
+  calctot()
+  {
+    this.total=0;
+    for(let i=0;i<this.explist.length;i++)
+    {
+      if (this.explist[i].amount != null) {
+        this.total += (this.explist[i].amount) as number;
+      }
+    }
   }
 }

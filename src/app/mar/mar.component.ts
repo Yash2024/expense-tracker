@@ -8,12 +8,12 @@ import { expense } from 'src/expense.model';
 })
 export class MarComponent implements OnInit {
 
-  exp: expense={expid:0,date:"",name:"",desc:"",amount:0,btn:1};
+  exp: expense={expid:0,date:"",name:"",desc:"",amount:0,btn:true};
   total: number=0;
   explist : expense[]=[];
   localitem!: string|null;
   constructor() { 
-    this.localitem=localStorage.getItem("explist");
+    this.localitem=localStorage.getItem("marexplist");
     if(this.localitem==null)
     {
       this.explist=[];
@@ -29,14 +29,14 @@ export class MarComponent implements OnInit {
   //update
   setsave(i:number)
   {
-      this.explist[i].btn=0;
+      this.explist[i].btn=false;
   }
 
   saveexp(exp:expense,i:number)
   {
     this.explist[i]=exp;
-    this.explist[i].btn=1;
-    localStorage.setItem("explist",JSON.stringify(this.explist));
+    this.explist[i].btn=true;
+    localStorage.setItem("marexplist",JSON.stringify(this.explist));
   }
 
 
@@ -52,11 +52,11 @@ export class MarComponent implements OnInit {
   {
     
     var expd= Object.assign({},this.exp);
-    expd.expid=1000+this.explist.length;
-    expd.btn=1;
+    expd.expid=3000+this.explist.length;
+    expd.btn=true;
     this.explist.push(expd);
-    this.exp={ expid: 0,date:"",name: "",desc:"", amount: 0,btn:1};
-    localStorage.setItem("explist",JSON.stringify(this.explist));
+    this.exp={ expid: 0,date:"",name: "",desc:"", amount: 0,btn:true};
+    localStorage.setItem("marexplist",JSON.stringify(this.explist));
     this.newslot=false;
   }
 
@@ -65,7 +65,17 @@ export class MarComponent implements OnInit {
   deleteexpense(id:number)
   {
     this.explist=this.explist.filter(x =>x.expid !=id);
-    localStorage.setItem("explist",JSON.stringify(this.explist));
+    localStorage.setItem("marexplist",JSON.stringify(this.explist));
   }
 
+  calctot()
+  {
+    this.total=0;
+    for(let i=0;i<this.explist.length;i++)
+    {
+      if (this.explist[i].amount != null) {
+        this.total += (this.explist[i].amount) as number;
+      }
+    }
+  }
 }

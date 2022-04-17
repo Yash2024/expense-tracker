@@ -4,6 +4,6 @@ export interface expense
     date: string;
     name: string;
     desc: string;
-    amount: number;
-    btn: number;
+    amount: number|null;
+    btn: boolean;
 }

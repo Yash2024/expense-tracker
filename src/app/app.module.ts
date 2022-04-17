@@ -16,6 +16,8 @@ import { SeptComponent } from './sept/sept.component';
 import { OctComponent } from './oct/oct.component';
 import { NovComponent } from './nov/nov.component';
 import { DecComponent } from './dec/dec.component';
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,9 @@ import { DecComponent } from './dec/dec.component';
     SeptComponent,
     OctComponent,
     NovComponent,
-    DecComponent
+    DecComponent,
+    AboutComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
