@@ -71,3 +71,9 @@ export class AppComponent {
 }
 
 
+// function myfun(){
+//   document.getElementById("menu").classList.toggle("show");
+// }
+
+
+

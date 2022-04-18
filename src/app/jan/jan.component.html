@@ -30,6 +30,7 @@
             <td><input type="text" [(ngModel)]="exp.desc" text value={{exp.desc}}></td>
             <td><input type="number" [(ngModel)]="exp.amount" text value={{exp.amount}}></td>
             <td><span>&nbsp;&nbsp;</span><button class="btn btn-success btn-sm" (click)="addexpense()">save</button></td>
+            <td><span>&nbsp;&nbsp;</span><i (click)="cancel()" class="fa fa-close" style="font-size:28px;color:black"></i></td>
         </tr>
         <br>
         <button class="btn btn-primary btn-sm" *ngIf="!newslot"(click)="addslot()">ADD</button>

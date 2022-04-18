@@ -9,9 +9,20 @@
 
   body{
       align-content: center;
+      margin-left: 120px;
+  }
+
+  .tab{
+      width: 1000px;
+  }
+
+  /* @media screen and (max-width:600px) {
+      body{
+      align-content: center;
       margin-left: 70px;
   }
 
   .tab{
       width: 1000px;
   }
+  } */

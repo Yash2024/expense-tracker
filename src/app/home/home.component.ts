@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   }
 
   month:boolean[]=[false,false,false,false,false,false,false,false,false,false,false,false];
+  // month:boolean[]=[true,true,true,true,true,true,true,true,true,true,true,true];
   jan()
   {
     this.month[0]=!this.month[0];
