@@ -54,6 +54,7 @@ export class DecComponent implements OnInit {
 
   cancel() {
     this.newslot = false;
+    this.exp = { expid: 0, date: "", name: "", desc: "", amount: 0, btn: true };
   }
 
   //ADD NEW
@@ -93,6 +94,7 @@ export class DecComponent implements OnInit {
 
   deleteexpense(id: number) {
     this.explist = this.explist.filter(x => x.expid != id);
+    this.calctot();
     localStorage.setItem("decexplist", JSON.stringify(this.explist));
   }
 

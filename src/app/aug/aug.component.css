@@ -47,6 +47,12 @@ table, thead, tbody, th, td, tr {
       padding-left: 50%; 
   }
 
+  input[type="text"] {
+    width: 140px;
+}
+input[type="number"] {
+  width: 140px;
+} 
   td:before { 
       /* Now like a table header */
       position: absolute;

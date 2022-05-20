@@ -15,7 +15,7 @@
     </thead>
         <tr mdbTableCol *ngFor="let expn of explist;let indexofelement=index">
             <td><input  [disabled]="expn.btn" type="date" [(ngModel)]="expn.date" text value={{expn.date}}></td>
-          <td><input [disabled]="expn.btn" type="text" [(ngModel)]="expn.name" text value={{expn.name}}></td>
+          <td ><input [disabled]="expn.btn" type="text" [(ngModel)]="expn.name" text value={{expn.name}}></td>
           <td><input [disabled]="expn.btn" type="text" [(ngModel)]="expn.desc" text value={{expn.desc}}></td>
           <td><input [disabled]="expn.btn" type="number" [(ngModel)]="expn.amount" text value={{expn.amount}}></td>
           <td><span>&nbsp;&nbsp;</span><button class="btn btn-danger btn-sm" *ngIf="expn.btn" (click)="setsave(indexofelement)">Update</button>
@@ -26,7 +26,7 @@
         </tr>
         <tr *ngIf="newslot">
             <td><input type="date" [(ngModel)]="exp.date" text value={{exp.date}}></td>
-            <td><input type="text" [(ngModel)]="exp.name" text value={{exp.name}}></td>
+            <td><input type="text" [(ngModel)]="exp.name" text value={{exp.name}} ></td>
             <td><input type="text" [(ngModel)]="exp.desc" text value={{exp.desc}}></td>
             <td><input type="number" [(ngModel)]="exp.amount" text value={{exp.amount}}></td>
             <td><span>&nbsp;&nbsp;</span><button class="btn btn-success btn-sm" (click)="addexpense()">save</button></td>

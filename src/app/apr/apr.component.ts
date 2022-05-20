@@ -86,12 +86,14 @@ export class AprComponent implements OnInit {
 
   cancel() {
     this.newslot = false;
+    this.exp = { expid: 0, date: "", name: "", desc: "", amount: 0, btn: true };
   }
 
   //Delete
 
   deleteexpense(id: number) {
     this.explist = this.explist.filter(x => x.expid != id);
+    this.calctot();
     localStorage.setItem("aprexplist", JSON.stringify(this.explist));
   }
 
